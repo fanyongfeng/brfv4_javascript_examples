@@ -150,7 +150,7 @@
 
 		var tag = null;
 
-		if(htmlTag === "canvas" || htmlTag === "video" || htmlTag === "div") {
+		if(htmlTag === "canvas" || htmlTag === "video" || htmlTag === "div" || htmlTag === 'img') {
 	
 			tag = document.createElement(htmlTag);
 			tag.id = id;
