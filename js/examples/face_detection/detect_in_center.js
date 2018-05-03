@@ -18,6 +18,12 @@
 			resolution.width * 0.25, resolution.height * 0.10,
 			resolution.width * 0.50, resolution.height * 0.80
 		);
+    const img = document.createElement('img');
+    img.src = 'assets/pic_facefocus.svg';
+    img.class = "face-img"
+    img.style = "width: 100%; height: 100%";
+    brfv4Example.dom.addElement(img, '_content');
+
 		brfManager.setFaceDetectionRoi(_faceDetectionRoi);
 
 		// We can have either a landscape area (desktop), then choose height or
