@@ -2,6 +2,7 @@
 	"use strict";
 
 	var _faceDetectionRoi = new brfv4.Rectangle();
+  var $faceWrapper = null;
 
 	brfv4Example.initCurrentExample = function(brfManager, resolution) {
 
@@ -19,9 +20,11 @@
 			resolution.width * 0.50, resolution.height * 0.80
 		);
     const img = document.createElement('img');
+    $faceWrapper = img;
     img.src = 'assets/pic_facefocus.svg';
+    img.id = 'face-wrapper';
     img.class = "face-img"
-    img.style = "width: 100%; height: 100%";
+    img.style = "width: 85%;height: 85%;position: absolute;top: 50%;left: 50%;transform: translate3d(-50%, -50%, 0);";
     brfv4Example.dom.addElement(img, '_content');
 
 		brfManager.setFaceDetectionRoi(_faceDetectionRoi);
@@ -51,20 +54,20 @@
 
 		draw.clear();
 
-		// Show the region of interest (green).
+		// // Show the region of interest (green).
 
-		draw.drawRect(_faceDetectionRoi,					false, 2.0, 0x8aff00, 0.5);
+		// draw.drawRect(_faceDetectionRoi,					false, 2.0, 0x8aff00, 0.5);
 
-		// Then draw all detected faces (blue).
+		// // Then draw all detected faces (blue).
 
-		draw.drawRects(brfManager.getAllDetectedFaces(),	false, 1.0, 0x00a1ff, 0.5);
+		// draw.drawRects(brfManager.getAllDetectedFaces(),	false, 1.0, 0x00a1ff, 0.5);
 
-		// In the end add the merged detected faces that have at least 12 detected faces
-		// in a certain area (yellow).
+		// // In the end add the merged detected faces that have at least 12 detected faces
+		// // in a certain area (yellow).
 
-		draw.drawRects(brfManager.getMergedDetectedFaces(),	false, 2.0, 0xffd200, 1.0);
+		// draw.drawRects(brfManager.getMergedDetectedFaces(),	false, 2.0, 0xffd200, 1.0);
 
-		// Now print the face sizes:
+		// // Now print the face sizes:
 
 		printSize(brfManager.getMergedDetectedFaces(), false);
 	};
@@ -86,24 +89,11 @@
 		}
 
 		if(maxWidth > 0) {
-
-			var str = "";
-
-			// One face or same size: name it size, otherwise name it min/max.
-
-			if(minWidth === maxWidth && !printAlwaysMinMax) {
-				str = "size: " + maxWidth.toFixed(0);
-			} else {
-				str = "min: " + minWidth.toFixed(0) + " max: " + maxWidth.toFixed(0);
-			}
-
-			brfv4Example.dom.updateHeadline("BRFv4 - basic - face detection - detect face in " +
-				"center\nLimit detection area to the center of the image. " + str);
-		}
+      $faceWrapper.classList.remove('show');
+      $faceWrapper.classList.add('hide');
+		} else {
+      $faceWrapper.classList.remove('hide');
+      $faceWrapper.classList.add('show');
+    }
 	}
-
-	brfv4Example.dom.updateHeadline("BRFv4 - basic - face detection - detect face in center\n" +
-		"Limit detection area (region of interest) to the center of the image.");
-
-	brfv4Example.dom.updateCodeSnippet(exampleCode + "");
 })();

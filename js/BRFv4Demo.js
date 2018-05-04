@@ -61,9 +61,8 @@ var brfv4 = {locateFile: function(fileName) { return brfv4BaseURL + fileName; }}
 // Demo entry point: preloading js files.
 //
 
-brfv4Example.start = function() {
-
-	brfv4Example.loader.preload([
+brfv4Example.start = function(type) {
+  const preload = [
 
 		brfv4BaseURL + "BRFv4_JS_TK190218_v4.0.5_trial.js",						// BRFv4 SDK
 
@@ -96,9 +95,17 @@ brfv4Example.start = function() {
 
 		// example to load on startup, others can be chosen via the example chooser GUI.
 
-		"js/examples/face_tracking/track_single_face.js"		// start with this example
+		// "js/examples/face_tracking/track_single_face.js"		// start with this example
 
-	], function() {
+	];
+
+  if (type === 'detect_center') {
+    preload.push("js/examples/face_detection/detect_in_center.js");
+  } else {
+    preload.push("js/examples/face_tracking/track_single_face.js");
+  }
+
+	brfv4Example.loader.preload(preload, function() {
 
 		brfv4Example.init("webcam");
 
