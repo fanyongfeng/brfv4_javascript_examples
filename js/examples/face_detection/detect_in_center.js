@@ -54,22 +54,22 @@
 
 		draw.clear();
 
-		// // Show the region of interest (green).
+		// // // Show the region of interest (green).
 
 		// draw.drawRect(_faceDetectionRoi,					false, 2.0, 0x8aff00, 0.5);
 
-		// // Then draw all detected faces (blue).
+		// // // Then draw all detected faces (blue).
 
 		// draw.drawRects(brfManager.getAllDetectedFaces(),	false, 1.0, 0x00a1ff, 0.5);
 
-		// // In the end add the merged detected faces that have at least 12 detected faces
-		// // in a certain area (yellow).
+		// // // In the end add the merged detected faces that have at least 12 detected faces
+		// // // in a certain area (yellow).
 
 		// draw.drawRects(brfManager.getMergedDetectedFaces(),	false, 2.0, 0xffd200, 1.0);
 
 		// // Now print the face sizes:
 
-		printSize(brfManager.getMergedDetectedFaces(), false);
+		printSize(brfManager.getAllDetectedFaces(), false);
 	};
 
 	function printSize(rects, printAlwaysMinMax) {
