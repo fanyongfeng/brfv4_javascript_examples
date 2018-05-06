@@ -101,7 +101,10 @@ brfv4Example.start = function(type) {
 
   if (type === 'detect_center') {
     preload.push("js/examples/face_detection/detect_in_center.js");
-  } else {
+  } else if (type === 'face_texture') {
+		preload.push("assets/brfv4_face_textures.js");
+		preload.push("js/examples/face_tracking/face_texture_overlay.js");
+	} else {
     preload.push("js/examples/face_tracking/track_single_face.js");
   }
 

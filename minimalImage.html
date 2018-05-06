@@ -8,7 +8,7 @@
 
 <body>
 
-<img 	id="_image" src="assets/brfv4_women_young.jpg" style="display: none;"/>
+<img 	id="_image" src="assets/obama.jpg" style="display: none;"/>
 <canvas id="_imageData"></canvas>
 
 <script>
@@ -65,7 +65,7 @@
 			}
 
 			var faces = brfManager.getFaces();
-
+console.log(faces);
 			for(i = 0; i < faces.length; i++) {
 
 				var face = faces[i];
@@ -74,7 +74,7 @@
 						face.state === brfv4.BRFState.FACE_TRACKING) {
 
 					imageDataCtx.strokeStyle="#00a0ff";
-
+							
 					for(var k = 0; k < face.vertices.length; k += 2) {
 						imageDataCtx.beginPath();
 						imageDataCtx.arc(face.vertices[k], face.vertices[k + 1], 2, 0, 2 * Math.PI);

@@ -21,7 +21,24 @@
 		// Get all faces. The default setup only tracks one face.
 
 		var faces = brfManager.getFaces();
-
+		// console.log('faces', faces);
+		const result = faces[0].vertices.map((v, i) => {
+			const bound = faces[0].bounds;
+			if (i % 2 === 0) {
+				return (v - bound.x)/bound.width;
+			} else {
+				return (v - bound.y)/bound.height;
+			}
+		});
+		// const result1 = _extendedShape.vertices.map((v, i) => {
+		// 	const bound = _extendedShape.bounds;
+		// 	if (i % 2 === 0) {
+		// 		return (v - bound.x)/bound.width;
+		// 	} else {
+		// 		return (v - bound.y)/bound.height;
+		// 	}
+		// });
+		console.log(JSON.stringify(result));
 		for(var i = 0; i < faces.length; i++) {
 
 			var face = faces[i];
