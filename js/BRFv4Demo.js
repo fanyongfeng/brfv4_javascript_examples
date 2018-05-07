@@ -104,6 +104,9 @@ brfv4Example.start = function(type) {
   } else if (type === 'face_texture') {
 		preload.push("assets/brfv4_face_textures.js");
 		preload.push("js/examples/face_tracking/face_texture_overlay.js");
+	} else if (type === 'moustache') {
+		preload.push("assets/moustache.js");
+		preload.push("js/examples/face_tracking/face_texture_overlay.js");
 	} else {
     preload.push("js/examples/face_tracking/track_single_face.js");
   }
