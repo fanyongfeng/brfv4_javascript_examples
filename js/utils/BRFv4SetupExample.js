@@ -97,7 +97,7 @@
 			}
 
 			if(brfv4.Rectangle && !resolution) {
-				resolution	= new brfv4.Rectangle(0, 0, 640, 480);
+				resolution	= new brfv4.Rectangle(0, 0, 480, 360);
 			}
 
 			if(brfManager === null || resolution === null) {
@@ -130,7 +130,7 @@
 
 			} else {
 
-				resolution.setTo(0, 0, 640, 480); // reset for webcam initialization
+				resolution.setTo(0, 0, 480, 360); // reset for webcam initialization
 				imageData.init();
 			}
 		}

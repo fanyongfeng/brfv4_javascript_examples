@@ -189,7 +189,7 @@ brfv4Example.trace = function(msg, error) {
 		if(percent < 0.0) percent = 0.0;
 		if(percent > 1.0) percent = 1.0;
 
-		var width = Math.round(percent * 640);
+		var width = Math.round(percent * 480);
 		var color = 0xe7e7e7;
 
 		bar.style.width = width + "px";

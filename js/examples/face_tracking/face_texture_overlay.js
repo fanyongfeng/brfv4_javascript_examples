@@ -20,8 +20,8 @@
 
 		// Face detection results: a rough rectangle used to start the face tracking.
 
-		draw.drawRects(brfManager.getAllDetectedFaces(),	false, 1.0, 0x00a1ff, 0.5);
-		draw.drawRects(brfManager.getMergedDetectedFaces(),	false, 2.0, 0xffd200, 1.0);
+		// draw.drawRects(brfManager.getAllDetectedFaces(),	false, 1.0, 0x00a1ff, 0.5);
+		// draw.drawRects(brfManager.getMergedDetectedFaces(),	false, 2.0, 0xffd200, 1.0);
 
 		// Get all faces. The default setup only tracks one face.
 
@@ -35,7 +35,7 @@
 					face.state === brfv4.BRFState.FACE_TRACKING) {
 
 				//draw.drawTriangles(face.vertices, face.triangles, false, 1.0, 0x00a0ff, 0.4);
-				draw.drawVertices(face.vertices, 2.0, false, 0x00a0ff, 0.4);
+				// draw.drawVertices(face.vertices, 2.0, false, 0x00a0ff, 0.4);
 
 				// Now draw the texture onto the vertices/triangles using UV mapping.
 

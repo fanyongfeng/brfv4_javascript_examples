@@ -14,6 +14,12 @@
     #_settingsRight {
       display: none;
     }
+    video { 
+      position: absolute;
+      left: -120%;
+      top: 0;
+      display: block;
+    }
   </style>
 	<script>
 		window.onload = () => {
@@ -26,7 +32,6 @@
 <body>
 
 <div id="_wrapper">
-
 	<div id="_content">
 		<video  id="_webcam" playsinline></video>
 		<canvas id="_imageData"></canvas>
