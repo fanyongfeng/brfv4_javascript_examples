@@ -3,6 +3,8 @@
 
 	var _faceDetectionRoi = new brfv4.Rectangle();
   var $faceWrapper = null;
+  var showTimes = 0;
+  var hideTimes = 0;
 
 	brfv4Example.initCurrentExample = function(brfManager, resolution) {
 
@@ -76,6 +78,7 @@
 
 		var maxWidth = 0;
 		var minWidth = 9999;
+    var setInter = null;
 
 		for(var i = 0, l = rects.length; i < l; i++) {
 
@@ -89,11 +92,24 @@
 		}
 
 		if(maxWidth > 0) {
-      $faceWrapper.classList.remove('show');
-      $faceWrapper.classList.add('hide');
+      if (showTimes >= 20) {
+        $faceWrapper.classList.remove('show');
+        $faceWrapper.classList.add('hide');
+        showTimes = 0
+        hideTimes = 0
+      } else {
+        ++showTimes
+      }
 		} else {
-      $faceWrapper.classList.remove('hide');
-      $faceWrapper.classList.add('show');
+      if (hideTimes >= 20) {
+        $faceWrapper.classList.remove('hide');
+        $faceWrapper.classList.add('show');
+        showTimes = 0
+        hideTimes = 0
+      } else {
+        console.log(hideTimes);
+        ++hideTimes
+      }
     }
 	}
 })();
